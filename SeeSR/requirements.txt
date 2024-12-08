@@ -8,5 +8,5 @@ loralib
 fairscale
 pydantic==1.10.11
 gradio==3.24.0
-imagereward
+image-reward
 pyiqa

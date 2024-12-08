@@ -10,14 +10,14 @@ To install the necessary dependencies, run the following commands:
 
 ```bash
 pip install pyiqa
-pip install imagereward
+pip install image-reward
 pip install git+https://github.com/fbcotter/pytorch_wavelets.git
 ```
 
 ## Run SeeSR
 
 ```bash
-bash train_seesr_kl_ema.sh
+bash SeeSR/train_seesr_kl_ema.sh
 ```
 ## Visualization
 
