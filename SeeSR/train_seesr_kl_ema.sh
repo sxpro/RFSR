@@ -1,0 +1,35 @@
+# CUDA_VISIBLE_DEVICES="0" accelerate launch train_seesr_kl_ema.py \
+CUDA_VISIBLE_DEVICES="0" python3 train_seesr_kl_ema.py \
+--pretrained_model_name_or_path="./preset/models/stable-diffusion-2-base" \
+--unet_model_name_or_path="./pretrained_models" \
+--controlnet_model_name_or_path="./pretrained_models" \
+--output_dir="./experience/seesr_debug" \
+--root_folders="./dataset/train_datasets/DIV2K_train,./dataset/train_datasets/Flickr2K, ./dataset/train_datasets/OST, ./dataset/train_datasets/DIV8K, ./dataset/train_datasets/FFHQ_10k" \
+--ram_ft_path='./pretrained_models/DAPE.pth' \
+--enable_xformers_memory_efficient_attention \
+--mixed_precision="fp16" \
+--resolution=512 \
+--learning_rate=5e-6 \
+--train_batch_size=1 \
+--gradient_accumulation_steps=2 \
+--null_text_ratio=0.5 \
+--dataloader_num_workers=4 \
+--checkpointing_steps=1000 \
+--max_train_steps=15000 \
+--timesteps=50 \
+--save_training_image \
+--auto_resume \
+--timestep_sample 0 49 \
+--dwt_loss \
+--dwt_loss_weight=0.0005 \
+--dwt_loss_step 0 19 \
+--image_reward_loss \
+--image_reward_loss_weight=0.000005 \
+--image_reward_loss_step 40 49 \
+--clipiqa_loss \
+--clipiqa_loss_weight=0.00005 \
+--clipiqa_loss_step 40 49 \
+--kl_loss \
+--kl_loss_weight 0.0000005 \
+--kl_loss_step 40 49 \
+--kl_norm=1 \
